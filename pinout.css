@@ -87,13 +87,14 @@ footer.print {display: none;}
 table {
     border-collapse: collapse;
     margin-top: 20px;
+    font-size: 14px;
 }
 
 th,
 td {
     border: 1px solid #ccc;
     text-align: left;
-    padding: 5px;
+    padding: 6px 20px 6px 6px;
 }
 
 tbody {border-top:10px solid #ccc}

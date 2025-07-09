@@ -1,4 +1,6 @@
 import json
+import hashlib
+from datetime import datetime
 
 data = json.loads(open("pinout.json").read())
 types = data["types"]
@@ -62,7 +64,10 @@ for offset in (1, 16, 31, 46):
 html += tfoot()
 
 template = open("template.html", "r").read()
+template = template.replace("<table>", html)
+template = template.replace("{cache_buster.css}", hashlib.sha256(open("pinout.css", "rb").read()).hexdigest()[:7])
+template = template.replace("{cache_buster.js}", hashlib.sha256(open("pinout.js", "rb").read()).hexdigest()[:7])
 
-open("index.html", "w").write(template.replace("<table>", html))
+open("index.html", "w").write(template)
 
 
