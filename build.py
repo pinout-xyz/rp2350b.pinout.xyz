@@ -1,0 +1,68 @@
+import json
+
+data = json.loads(open("pinout.json").read())
+types = data["types"]
+
+
+class Pin:
+    def __init__(self, pin, name, type, desc=None, alt=[]):
+        self.pin = int(pin)
+        self.name = name
+        self.type = type or "generic"
+        self.desc = desc or types.get(type, "")
+        self.alt = alt
+
+    def __repr__(self):
+        return f"{self.name}: {self.desc}"
+    
+    def table_row(self):
+        tbl = f"<tr class=\"{self.type}\"><th>{self.pin}</th><th title=\"{self.desc}\">{self.name}</th>"
+        if len(self.alt):
+            for alt in self.alt:
+                tbl += f"<td>{alt}</td>"
+        else:
+            tbl += f"<td></td>" * 12
+        return tbl + "\n"
+
+
+def pins(start=1, count=15):
+    for i in range(start, start + count):
+        yield Pin(i, **data["pins"][str(i)])
+
+
+html = ""
+
+def thead():
+    html = """<table id="pinout">
+    <thead><tr><th>Pin</th><th>Name</th>"""
+    for i in range(12):
+        html += f"<th>alt{i}</th>"
+    html += """</tr></thead>
+    <tbody>"""
+    return html
+
+def tfoot():
+    return """    </tbody>
+</table>"""
+
+def tbody():
+    return """    </tbody>
+    <tbody>"""
+
+
+html += thead()
+
+for offset in (1, 16, 31, 46):
+    for pin in pins(offset):
+        html += pin.table_row()
+
+    if offset < 46:
+        html += tbody()
+
+html += tfoot()
+
+template = open("template.html", "r").read()
+
+open("index.html", "w").write(template.replace("<table>", html))
+
+

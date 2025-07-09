@@ -1,0 +1,293 @@
+{
+    "name": "RP2350A",
+    "types": {
+        "gpio": "General-purpose digital input and output.",
+        "adc": "General-purpose digital input and output, with analogue-to-digital converter function. The RP2350 ADC has an analogue multiplexer which can select any one of these pins, and sample the voltage.",
+        "qspi": "Interface to a SPI, Dual-SPI or Quad-SPI flash or PSRAM device, with execute-in-place support. These pins can also be used as software-controlled GPIOs, if they are not required for flash access.",
+        "usb": "USB controller, supporting Full Speed device and Full/Low Speed host. A 27Ω series termination resistor is required on each pin, but bus pullups and pulldowns are provided internally. These pins can be used as software-controlled GPIOs, if USB is not required.",
+        "xtal": "Connect a crystal to RP2350's crystal oscillator. XIN can also be used as a single-ended CMOS clock input, with XOUT disconnected. The USB bootloader defaults to a 12MHz crystal or 12MHz clock input, but this can be configured via OTP.",
+        "iovdd": "Power supply for digital GPIOs, nominal voltage 1.8V to 3.3V.",
+        "dvdd": "Digital core power supply, nominal voltage 1.1V. Must be connected externally, either to the voltage regulator output, or an external board-level power supply.",
+        "debug": "Access to the internal Serial Wire Debug multi-drop bus. Provides debug access to both processors, and can be used to download code."
+    },
+    "pins": {
+        "1": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "2": {
+            "name": "GPIO0",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM0 A", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB OVCUR DET", ""]
+        },
+        "3": {
+            "name": "GPIO1",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM0 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACECLK", "USB VBUS DET", ""]
+        },
+        "4": {
+            "name": "GPIO2",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM1 A", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA0", "USB VBUS EN", "UART0 TX"]
+        },
+        "5": {
+            "name": "GPIO3",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA1", "USB OVCUR DET", "UART0 RX"]
+        },
+        "6": {
+            "name": "DVDD",
+            "type": "dvdd"
+        },
+        "7": {
+            "name": "GPIO4",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART1 TX", "I2C0 SDA", "PWM2 A", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA2", "USB VBUS DET", ""]
+        },
+        "8": {
+            "name": "GPIO5",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART1 RX", "I2C0 SCL", "PWM2 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA3", "USB VBUS EN", ""]
+        },
+        "9": {
+            "name": "GPIO6",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART1 CTS", "I2C1 SDA", "PWM3 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 TX"]
+        },
+        "10": {
+            "name": "GPIO7",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART1 RTS", "I2C1 SCL", "PWM3 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 RX"]
+        },
+        "11": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "12": {
+            "name": "GPIO8",
+            "type": "gpio",
+            "alt": ["", "SPI1 RX", "UART1 TX", "I2C0 SDA", "PWM4 A", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS EN", ""]
+        },
+        "13": {
+            "name": "GPIO9",
+            "type": "gpio",
+            "alt": ["", "SPI1 CSn", "UART1 RX", "I2C0 SCL", "PWM4 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", ""]
+        },
+        "14": {
+            "name": "GPIO10",
+            "type": "gpio",
+            "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM5 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 TX"]
+        },
+        "15": {
+            "name": "GPIO11",
+            "type": "gpio",
+            "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM5 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 RX"]
+        },
+        "16": {
+            "name": "GPIO12",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM6 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN0", "USB OVCUR DET", ""]
+        },
+        "17": {
+            "name": "GPIO13",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI1 CSn", "UART0 RX", "I2C0 SCL", "PWM6 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT0", "USB VBUS DET", ""]
+        },
+        "18": {
+            "name": "GPIO14",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI1 SCK", "UART0 CTS", "I2C1 SDA", "PWM7 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN1", "USB VBUS EN", "UART0 TX"]
+        },
+        "19": {
+            "name": "GPIO15",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM7 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB OVCUR DET", "UART0 RX"]
+        },
+        "20": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "21": {
+            "name": "XIN",
+            "type": "xtal"
+        },
+        "22": {
+            "name": "XOUT",
+            "type": "xtal"
+        },
+        "23": {
+            "name": "DVDD",
+            "type": "dvdd"
+        },
+        "24": {
+            "name": "SWCLK",
+            "type": "debug"
+        },
+        "25": {
+            "name": "SWDIO",
+            "type": "debug"
+        },
+        "26": {
+            "name": "RUN",
+            "type": "system",
+            "desc": "Global asynchronous reset pin. Reset when driven low, run when driven high. If no external reset is required, this pin can be tied directly to IOVDD."
+        },
+        "27": {
+            "name": "GPIO16",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM0 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
+        },
+        "28": {
+            "name": "GPIO17",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM0 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
+        },
+        "29": {
+            "name": "GPIO18",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM1 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART0 TX"]
+        },
+        "30": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "31": {
+            "name": "GPIO19",
+            "type": "gpio",
+            "alt": ["HSTX", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS DET", "UART0 RX"]
+        },
+        "32": {
+            "name": "GPIO20",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART1 TX", "I2C0 SDA", "PWM2 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN0", "USB VBUS EN", ""]
+        },
+        "33": {
+            "name": "GPIO21",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART1 RX", "I2C0 SCL", "PWM2 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT0", "USB OVCUR DET", ""]
+        },
+        "34": {
+            "name": "GPIO22",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART1 CTS", "I2C1 SDA", "PWM3 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN1", "USB VBUS DET", "UART1 TX"]
+        },
+        "35": {
+            "name": "GPIO23",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART1 RTS", "I2C1 SCL", "PWM3 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB VBUS EN", "UART1 RX"]
+        },
+        "36": {
+            "name": "GPIO24",
+            "type": "gpio",
+            "alt": ["", "SPI1 RX", "UART1 TX", "I2C0 SDA", "PWM4 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT2", "USB OVCUR DET", ""]
+        },
+        "37": {
+            "name": "GPIO25",
+            "type": "gpio",
+            "alt": ["", "SPI1 CSn", "UART1 RX", "I2C0 SCL", "PWM4 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT3", "USB VBUS DET", ""]
+        },
+        "38": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "39": {
+            "name": "DVDD",
+            "type": "dvdd"
+        },
+        "40": {
+            "name": "GPIO26_ADC0",
+            "type": "adc",
+            "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM5 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 TX"]
+        },
+        "41": {
+            "name": "GPIO27_ADC1",
+            "type": "adc",
+            "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM5 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 RX"]
+        },
+        "42": {
+            "name": "GPIO28_ADC2",
+            "type": "adc",
+            "alt": ["", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM6 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
+        },
+        "43": {
+            "name": "GPIO29_ADC3",
+            "type": "adc",
+            "alt": ["", "SPI1 CSn", "UART0 RX", "I2C0 SCL", "PWM6 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
+        },
+        "44": {
+            "name": "ADC_AVDD",
+            "type": "adc_avdd",
+            "desc": "Power supply for analogue-to-digital converter, nominal voltage 3.3v."
+        },
+        "45": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "46": {
+            "name": "VREG_AVDD",
+            "type": "vreg",
+            "desc": "Analogue power supply for internal core voltage regulator, nominal voltage 3.3v."
+        },
+        "47": {
+            "name": "VREG_PGND",
+            "type": "vreg",
+            "desc": "Power-ground connection for internal core voltage regulator, tie to ground externally."
+        },
+        "48": {
+            "name": "VREG_LX",
+            "type": "vreg",
+            "desc": "Switched-mode output for internal core voltage regulator, connected to external inductor. Max current 200 mA, nominal voltage 1.1V after filtering."
+        },
+        "49": {
+            "name": "VREG_VIN",
+            "type": "vreg",
+            "desc": "Power input for internal core voltage regulator, nominal voltage 2.7V to 5.5V."
+        },
+        "50": {
+            "name": "VREG_FB",
+            "type": "vreg",
+            "desc": "Voltage feedback for internal core voltage regulator, connect to filtered VREG output (e.g. to DVDD, if the regulator is used to supply DVDD)."
+        },
+        "51": {
+            "name": "USB_DM",
+            "type": "usb"
+        },
+        "52": {
+            "name": "USB_DP",
+            "type": "usb"
+        },
+        "53": {
+            "name": "USB_OTP_VDD",
+            "type": "usb"
+        },
+        "54": {
+            "name": "QSPI_IOVDD",
+            "type": "qspi_iovdd",
+            "desc": "Power supply for QSPI IOs, nominal voltage 1.8V to 3.3v."
+        },
+        "55": {
+            "name": "QSPI_SD3",
+            "type": "qspi"
+        },
+        "56": {
+            "name": "QSPI_SCLK",
+            "type": "qspi"
+        },
+        "57": {
+            "name": "QSPI_SD0",
+            "type": "qspi"
+        },
+        "58": {
+            "name": "QSPI_SD2",
+            "type": "qspi"
+        },
+        "59": {
+            "name": "QSPI_SD1",
+            "type": "qspi"
+        },
+        "60": {
+            "name": "QSPI_SS",
+            "type": "qspi"
+        }
+    }
+}

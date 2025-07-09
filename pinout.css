@@ -1,0 +1,148 @@
+body {
+    display: grid;
+    place-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*  Header */
+header {
+    background: #002b36;
+    color: #e9e5d2;
+    width: 100%;
+    line-height: 22px;
+    padding: 10px;
+    border-bottom: 5px solid #268bd2;
+    display: grid;
+    grid-template-columns: auto auto;
+    box-sizing: border-box;
+}
+header h1 {
+    margin: 0;
+    padding: 0 0 0 10px;
+    font-size: 20px;
+}
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 10px 0 0;
+    text-align: right;
+}
+header li {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    white-space: pre;
+}
+header li:nth-child(2) a, header li:nth-child(2) a:visited, header li:nth-child(2) a:hover {color: #268bd2;}
+header li:nth-child(3) a, header li:nth-child(3) a:visited, header li:nth-child(3) a:hover {color: #d33682;}
+header li:nth-child(4) a, header li:nth-child(4) a:visited, header li:nth-child(4) a:hover {color: #dc322f;}
+
+section {
+    font-family: ui-monospace,
+        Menlo, Monaco,
+        "Cascadia Mono", "Segoe UI Mono",
+        "Roboto Mono",
+        "Oxygen Mono",
+        "Ubuntu Monospace",
+        "Source Code Pro",
+        "Fira Mono",
+        "Droid Sans Mono",
+        "Courier New", monospace;
+}
+
+/* Search */
+input {
+    margin: 20px 0 0 0;
+    padding: 10px;
+    font-family: inherit;
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+/* Footer */
+footer {
+    display: grid;
+    align-items: center;
+    margin: 20px 0;
+}
+footer p {
+    padding: 5px 10px;
+    margin: 0;
+    text-align: center;
+}
+footer a.selected {
+    text-decoration: none;
+    color: #666666;
+}
+footer a, footer a:visited {
+    color: #1d6ca5;
+}
+footer a:hover {
+    color: #3ba6f1;
+}
+footer.print {display: none;}
+
+/* Pinout Table */
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 5px;
+}
+
+tbody {border-top:10px solid #ccc}
+
+.gpio   {background-color: #85990033;border-color: #859900;}
+.xtal   {background-color: #002b3633;border-color: #002b36;}
+.vreg {background-color: #dc322f33;border-color: #dc322f;}
+.usb   {background-color: #2aa19833;border-color: #2aa198;}
+.system {background-color: #df8f8e33;border-color: #df8f8e;}
+.debug    {background-color: #268bd233;border-color: #268bd2;}
+.iovdd, .dvdd, .adc_avdd, .qspi_iovdd, .adc_avdd    {background-color: #d3368233;border-color: #d33682;}
+.adc   {background-color: #6c71c433;border-color: #6c71c4;}
+.qspi    {background-color: #33333333;border-color: #333333;}
+
+.search tr {background:none;}
+.search.hide tr:not(.result) {display:none;}
+
+.result td, .result th {background-color:#dc322f33;}
+th.result, td.result {background-color:#dc322f66;}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000000;
+        color: #ddd;
+    }
+    th, td, tbody {border-color: #000;}
+    header {
+        background: #111111;
+        color: #666666;
+        border-bottom-color: #222222;
+    }
+    footer p {
+        color: #666666;
+    }
+    input {
+        background: #111;
+        border: 1px solid #222;
+        color: #ddd;
+    }
+}
+
+@media print {
+    footer, header ul, #nav {display: none;}
+    footer.print {
+        display: block;
+        border-top: 5px solid #268bd2;
+    }
+    header {
+        background: transparent;
+        color: #666666;
+    }
+}
