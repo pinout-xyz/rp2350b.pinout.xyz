@@ -19,7 +19,7 @@ input.onkeyup = function(){
     table.classList.toggle("hide", find !== "" && hide.checked);
 
     cells.forEach(cell=>{
-        var found = find !== "" && cell.textContent.toLowerCase().includes(find);
+        var found = find !== "" && cell.textContent.toLowerCase().match(find);
         cell.classList.toggle("result", found);
         if(found) {
             cell.parentElement.classList.toggle("result", true);
