@@ -107,6 +107,10 @@ td {
 
 tbody th, tbody td {cursor:pointer;}
 
+tbody tr th:nth-child(2) {
+    cursor:help;
+}
+
 tbody {border-top:10px solid #ccc;}
 
 .gpio   {background-color: #85990033;border-color: #859900;}
@@ -168,6 +172,7 @@ th.result, td.result {background-color:#dc322f66;}
     background:#111111dd;
     color: #ccc;
     border-radius:5px;
+    cursor: url(fa-rotate-solid.svg), pointer;
 }
 @keyframes rotate360 {
     0% {
@@ -202,8 +207,8 @@ th.result, td.result {background-color:#dc322f66;}
     box-sizing: content-box;
     user-select: none;
     -webkit-user-select: none;
-    cursor:default;
     line-height: 10px;
+    cursor:help;
 }
 
 #minimap dl:nth-child(1) {
