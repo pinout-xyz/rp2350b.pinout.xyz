@@ -156,8 +156,6 @@ th.result, td.result {background-color:#dc322f66;}
     top: 57px;
     transform:scale(0.75, 0.75);
     transform-origin: 100% 0;
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
     transition: transform .2s ease-in-out;
 }
 
@@ -172,6 +170,8 @@ th.result, td.result {background-color:#dc322f66;}
     background:#111111dd;
     color: #ccc;
     border-radius:5px;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
     cursor: url(fa-rotate-solid.svg), pointer;
 }
 @keyframes rotate360 {
