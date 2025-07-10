@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="shortcut icon" href="pinout-logo.png" type="image/png">
     <title>Raspberry Pi RP2350A (QFN-60) GPIO Pinout</title>
     <meta name="description" content="An interactive, accessible and beautiful QFN-60 GPIO pinout for the Raspberry Pi RP2350 microcontroller." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
     <link rel="stylesheet" href="pinout.css?v={cache_buster.css}" type="text/css" media="screen,print" />
 </head>
-
 <body>
     <header>
         <h1>Raspberry Pi RP2350A (QFN-60) Pinout</h1>
@@ -15,10 +16,14 @@
     <section>
         <form>
             <input type="text" name="find" id="find" placeholder="find...">
-            <label for="hide"><input type="checkbox" name="hide" id="find_hide"> Hide non-matches</label>
+            <label for="find_hide"><input type="checkbox" id="find_hide"> Hide non-matches</label>
+            <label for="mark_confirm"><input type="checkbox" id="mark_confirm"> Confirm pin assignment conflicts</label>
         </form>
     <table>
     </section>
+    <div id="minimap">
+        <minimap>
+    </div>
     <footer>
         <p><a title="Raspberry Pi Pico 2 Datasheet (PDF)" href="https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf">Pico 2 Datasheet</a>
 | <a title="Raspberry Pi RP2350 Datasheet (PDF) for in-depth information about the Pico W's RP2350 chip, peripherals and PIO." href="https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf">RP2350 Datasheet</a>

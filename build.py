@@ -26,6 +26,9 @@ class Pin:
             tbl += f"<td></td>" * 12
         return tbl + "\n"
 
+    def minimap_row(self):
+        return f"<dt>{self.pin}</dt><dd class=\"{self.type}\">{self.name}</dd>"
+
 
 def pins(start=1, count=15):
     for i in range(start, start + count):
@@ -53,18 +56,23 @@ def tbody():
 
 
 html += thead()
+minimap = "<dl>"
 
 for offset in (1, 16, 31, 46):
     for pin in pins(offset):
         html += pin.table_row()
+        minimap += pin.minimap_row()
 
     if offset < 46:
         html += tbody()
+        minimap += "</dl><dl>"
 
 html += tfoot()
+minimap += "</dl>"
 
 template = open("template.html", "r").read()
 template = template.replace("<table>", html)
+template = template.replace("<minimap>", minimap)
 template = template.replace("{cache_buster.css}", hashlib.sha256(open("pinout.css", "rb").read()).hexdigest()[:7])
 template = template.replace("{cache_buster.js}", hashlib.sha256(open("pinout.js", "rb").read()).hexdigest()[:7])
 
