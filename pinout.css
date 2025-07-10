@@ -146,15 +146,12 @@ th.result, td.result {background-color:#dc322f66;}
 #minimap {
     position: fixed;
     font-size:6px;
-    background:#111111dd;
-    border-radius:5px;
-    width:320px;
-    height:320px;
+    width:330px;
+    height:330px;
     right: 10px;
     top: 57px;
     transform:scale(0.75, 0.75);
     transform-origin: 100% 0;
-    color: #ccc;
     backdrop-filter:blur(5px);
     -webkit-backdrop-filter:blur(5px);
     transition: transform .2s ease-in-out;
@@ -164,46 +161,100 @@ th.result, td.result {background-color:#dc322f66;}
     transform:scale(1.5, 1.5);
 }
 
+#minimap > div {
+    width:330px;
+    height:330px;
+    transform-origin: 50% 50%;
+    background:#111111dd;
+    color: #ccc;
+    border-radius:5px;
+}
+@keyframes rotate360 {
+    0% {
+        transform: rotate(270deg);
+    }
+    99.9% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+#minimap.rot0 > div {animation: rotate360 .2s ease-in-out;}
+#minimap.rot90 > div {transform: rotate(90deg);
+    transition: transform .2s ease-in-out;}
+#minimap.rot180 > div {transform: rotate(180deg);
+    transition: transform .2s ease-in-out;}
+#minimap.rot270 > div {transform: rotate(270deg);
+    transition: transform .2s ease-in-out;}
+
 #minimap dl {
     display: grid;
     grid-template-columns: auto 1fr;
     margin: 0;
-    padding: 0;
+    padding: 0 5px;
     width: 75px;
-    line-height: 10px;
 }
 
 #minimap dt, #minimap dd {
     margin: 0;
-    padding: 0;
+    padding: 0 3px;
+    box-sizing: content-box;
     user-select: none;
     -webkit-user-select: none;
     cursor:default;
-}
-
-#minimap dd {
-    text-indent: 3px;
-    margin: 0 3px;
+    line-height: 10px;
 }
 
 #minimap dl:nth-child(1) {
     direction: rtl;
     position: absolute;
     left: 0;
-    top: 85px;
+    top: 90px;
+    text-align: left;
 }
+#minimap.rot180 dl:nth-child(1) dt, #minimap.rot180 dl:nth-child(1) dd {
+    transform: scale(-1, -1); /* Vertical flip to correct elements at 180 degree rotation */
+}
+#minimap.rot180 dl:nth-child(3) dt, #minimap.rot180 dl:nth-child(3) dd {
+    transform: scale(-1, 1); /* Vertical flip to correct elements at 180 degree rotation */
+}
+#minimap.rot180 dl:nth-child(1) dt:before {
+    right: auto;
+    left: -6px;
+}
+#minimap.rot180 dl:nth-child(3) dt:before {
+    left: auto;
+    right: -6px;
+}
+#minimap.rot270 dl:nth-child(2) dt, #minimap.rot270 dl:nth-child(2) dd {
+    transform: scale(-1, -1); /* Vertical flip to correct elements at 180 degree rotation */
+}
+#minimap.rot270 dl:nth-child(4) dt, #minimap.rot270 dl:nth-child(4) dd {
+    transform: scale(-1, 1); /* Vertical flip to correct elements at 180 degree rotation */
+}
+#minimap.rot270 dl:nth-child(2) dt:before {
+    right: auto;
+    left: -6px;
+}
+#minimap.rot270 dl:nth-child(4) dt:before {
+    left: auto;
+    right: -6px;
+}
+
 #minimap dl:nth-child(2) {
     direction: rtl;
     transform: rotate(-90deg);
     transform-origin: 100% 0;
     position: absolute;
-    left: 10px;
-    bottom: -75px;
+    left: 5px;
+    bottom: -65px;
+    text-align: left;
 }
 #minimap dl:nth-child(3) {
     position: absolute;
     right: 0;
-    top: 85px;
+    top: 90px;
     transform: scale(1, -1); /* Vertical flip container */
 }
 #minimap dl:nth-child(3) dt, #minimap dl:nth-child(3) dd {
@@ -211,7 +262,7 @@ th.result, td.result {background-color:#dc322f66;}
 }
 #minimap dl:nth-child(4) {
     position: absolute;
-    right: 85px;
+    right: 90px;
     top: 0;
     transform: scale(-1, 1) rotate(-90deg); /* Vertical flip container */
     transform-origin: 100% 0;
@@ -248,7 +299,7 @@ th.result, td.result {background-color:#dc322f66;}
     left: -6px;
     right: auto;
 }
-#minimap:before {
+#minimap > div:before {
     content: "\2B24";
     display: block;
     background: #222;
@@ -257,8 +308,8 @@ th.result, td.result {background-color:#dc322f66;}
     line-height: 18px;
     text-indent: 4px;
     font-size: 5px;
-    left: 80px;
-    top: 80px;
+    left: 85px;
+    top: 85px;
     width: 160px;
     height: 160px;
 }

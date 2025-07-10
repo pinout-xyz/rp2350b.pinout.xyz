@@ -8,7 +8,8 @@ var cells = document.querySelectorAll("tbody td,tbody th");
 var alt_functions = document.querySelectorAll("tbody td");
 var rows = document.querySelectorAll("tr");
 
-var minimap = document.querySelectorAll("#minimap dt");
+var minimap = document.getElementById("minimap");
+var minimap_pins = document.querySelectorAll("#minimap dt");
 
 checkbox_hide.onchange = function() {
     find = input.value.toLowerCase();
@@ -48,15 +49,15 @@ function is_sio(alt_fn) {
 // Some gymnastics to swap the title/textContent so the minimap shows the
 // configured alt function in place of GPIOn, but also swaps back nicely.
 function update_minimap(minipin, add, alt_fn) {
-    minimap[minipin].classList.toggle("selected", add);
-    minimap[minipin].nextSibling.classList.toggle("selected", add);
+    minimap_pins[minipin].classList.toggle("selected", add);
+    minimap_pins[minipin].nextSibling.classList.toggle("selected", add);
 
     if (is_sio(alt_fn)) {
-        minimap[minipin].nextSibling.title = add ? alt_fn : "";
+        minimap_pins[minipin].nextSibling.title = add ? alt_fn : "";
     } else {
-        var text = add ? alt_fn : minimap[minipin].nextSibling.title;
-        minimap[minipin].nextSibling.title = add ? minimap[minipin].nextSibling.textContent : "";
-        minimap[minipin].nextSibling.textContent = text;
+        var text = add ? alt_fn : minimap_pins[minipin].nextSibling.title;
+        minimap_pins[minipin].nextSibling.title = add ? minimap_pins[minipin].nextSibling.textContent : "";
+        minimap_pins[minipin].nextSibling.textContent = text;
     }
 }
 
@@ -102,3 +103,13 @@ function mark_pin(){
 }
 
 alt_functions.forEach(cell=>cell.onclick = mark_pin);
+
+var rotate = 0;
+minimap.onclick = () => {
+    rotate += 1;
+    rotate %= 4;
+    minimap.classList.toggle("rot0", rotate === 0);
+    minimap.classList.toggle("rot90", rotate === 1);
+    minimap.classList.toggle("rot180", rotate === 2);
+    minimap.classList.toggle("rot270", rotate === 3);
+};
