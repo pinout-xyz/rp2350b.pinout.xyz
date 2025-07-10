@@ -135,12 +135,12 @@ function JSON_download() {
         pins.push(`{"pin": "${pin}", "name": "${name}"${alt_fn}}`);
     });
     pins = pins.join(",\n");
-    var content = `[${pins}]`;
+    var filename = input_filename.value ? input_filename.value : "rp2350a.pinout.xyz";
+    var content = `{\n"name": "${filename}",\n"pins": [${pins}]\n}`;
     const a = document.createElement("a");
     const blob = new Blob([content], {type: "text/json"});
     a.setAttribute('href', URL.createObjectURL(blob));
-    var filename = input_filename.value ? input_filename.value + ".json" : "rp2350a.pinout.xyz.json"
-    a.setAttribute('download', filename);
+    a.setAttribute('download', filename + ".json" );
     a.click();
 }
 
