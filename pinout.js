@@ -6,6 +6,7 @@ var checkbox_hide = document.getElementById("find_hide");
 var checkbox_confirm = document.getElementById("mark_confirm");
 var cells = document.querySelectorAll("tbody td,tbody th");
 var alt_functions = document.querySelectorAll("tbody td");
+var headings = document.querySelectorAll("tbody th");
 var rows = document.querySelectorAll("tbody tr");
 
 var minimap = document.getElementById("minimap");
@@ -49,7 +50,7 @@ input.onkeyup = function(){
 // only be configured on *one* pin. This isn't strictly true from the hardware
 // perspective, but is generally what you'll want.
 function is_mutex(alt_fn) {
-    return ["SPI", "UART", "I2C", "PWM", "CLOCK"].some(iface => alt_fn.startsWith(iface));
+    return ["SPI", "UART", "I2C", "PWM", "CLOCK", "USB"].some(iface => alt_fn.startsWith(iface));
 }
 
 // The SIO function is effectively GPIO, so detect it and avoid replacing text
@@ -74,8 +75,15 @@ function update_minimap(minipin, add, alt_fn) {
 }
 
 function mark_pin(){
-    var pin = this;
-    var alt_fn = this.textContent;
+    _mark_pin(this);
+}
+
+function mark_pin_sio() {
+    _mark_pin(this.parentElement.getElementsByTagName("td")[5]);
+}
+
+function _mark_pin(pin) {
+    var alt_fn = pin.textContent;
     if (alt_fn === "") return;
 
     var add = !pin.classList.contains("selected");
@@ -115,6 +123,7 @@ function mark_pin(){
 }
 
 alt_functions.forEach(cell=>cell.onclick = mark_pin);
+headings.forEach(cell=>cell.onclick = mark_pin_sio);
 
 var rotate = 0;
 minimap.onclick = () => {

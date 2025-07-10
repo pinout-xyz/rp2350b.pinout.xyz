@@ -309,6 +309,9 @@ th.result, td.result {background-color:#dc322f66;}
     right: -6px;
     top: 3px;
 }
+#minimap dt.hover:before {
+    background:#888;
+}
 
 #minimap dt.selected {
     color: #ddff00;
