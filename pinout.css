@@ -152,15 +152,16 @@ th.result, td.result {background-color:#dc322f66;}
     height:320px;
     right: 10px;
     top: 57px;
-    transform:scale(0.5, 0.5);
+    transform:scale(0.75, 0.75);
     transform-origin: 100% 0;
-    color: #ddd;
+    color: #ccc;
     backdrop-filter:blur(5px);
     -webkit-backdrop-filter:blur(5px);
+    transition: transform .2s ease-in-out;
 }
 
 #minimap:hover {
-    transform:scale(1.0, 1.0);
+    transform:scale(1.5, 1.5);
 }
 
 #minimap dl {
@@ -175,6 +176,9 @@ th.result, td.result {background-color:#dc322f66;}
 #minimap dt, #minimap dd {
     margin: 0;
     padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor:default;
 }
 
 #minimap dd {
@@ -234,6 +238,9 @@ th.result, td.result {background-color:#dc322f66;}
 }
 #minimap dt.selected:before {
     background: #ddff00;
+}
+#minimap dd.selected {
+    color: #fff;
 }
 
 #minimap dl:nth-child(3) dt:before,

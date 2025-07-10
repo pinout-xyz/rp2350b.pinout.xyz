@@ -32,8 +32,32 @@ input.onkeyup = function(){
     });
 }
 
+// Alt functions starting with these values are "mutually exclusive" and can
+// only be configured on *one* pin. This isn't strictly true from the hardware
+// perspective, but is generally what you'll want.
 function is_mutex(alt_fn) {
-    return ["SPI", "UART", "I2C", "PWM"].some(iface => alt_fn.startsWith(iface));
+    return ["SPI", "UART", "I2C", "PWM", "CLOCK"].some(iface => alt_fn.startsWith(iface));
+}
+
+// The SIO function is effectively GPIO, so detect it and avoid replacing text
+// labels (in the minimap) on select.
+function is_sio(alt_fn) {
+    return ["SIO"].some(iface => alt_fn.startsWith(iface));
+}
+
+// Some gymnastics to swap the title/textContent so the minimap shows the
+// configured alt function in place of GPIOn, but also swaps back nicely.
+function update_minimap(minipin, add, alt_fn) {
+    minimap[minipin].classList.toggle("selected", add);
+    minimap[minipin].nextSibling.classList.toggle("selected", add);
+
+    if (is_sio(alt_fn)) {
+        minimap[minipin].nextSibling.title = add ? alt_fn : "";
+    } else {
+        var text = add ? alt_fn : minimap[minipin].nextSibling.title;
+        minimap[minipin].nextSibling.title = add ? minimap[minipin].nextSibling.textContent : "";
+        minimap[minipin].nextSibling.textContent = text;
+    }
 }
 
 function mark_pin(){
@@ -55,7 +79,8 @@ function mark_pin(){
                 conflict.parentElement.classList.remove("selected");
 
                 var minipin = parseInt(conflict.parentElement.querySelector("th").textContent) - 1;
-                minimap[minipin].classList.remove("selected");
+                update_minimap(minipin, false, "");
+            
             } else {
                 return;
             }
@@ -72,7 +97,8 @@ function mark_pin(){
     pin.parentElement.classList.toggle("selected", add);
 
     var minipin = parseInt(pin.parentElement.querySelector("th").textContent) - 1;
-    minimap[minipin].classList.toggle("selected", add);
+    update_minimap(minipin, add, alt_fn);
+
 }
 
 alt_functions.forEach(cell=>cell.onclick = mark_pin);
