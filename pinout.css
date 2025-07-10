@@ -96,14 +96,21 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 14px;
+    width: 1240px;
 }
 
 th,
 td {
     border: 1px solid #ccc;
     text-align: left;
-    padding: 6px 20px 6px 6px;
+    padding: 4px 6px;
 }
+
+tbody tr td:nth-child(2n + 1) {
+    background-color:#ffffff33;
+}
+
+tbody tr:nth-child(1) {border-top:5px solid #cccc !important;}
 
 tbody th, tbody td {cursor:pointer;}
 
@@ -111,20 +118,34 @@ tbody tr th:nth-child(2) {
     cursor:help;
 }
 
-tbody {border-top:10px solid #ccc;}
+tbody tr:hover {
+    background:#333;
+}
 
 .gpio   {background-color: #85990033;border-color: #859900;}
 .xtal   {background-color: #002b3633;border-color: #002b36;}
-.vreg {background-color: #dc322f33;border-color: #dc322f;}
-.usb   {background-color: #2aa19833;border-color: #2aa198;}
+.vreg   {background-color: #dc322f33;border-color: #dc322f;}
+.usb    {background-color: #2aa19833;border-color: #2aa198;}
 .system {background-color: #df8f8e33;border-color: #df8f8e;}
-.debug    {background-color: #268bd233;border-color: #268bd2;}
+.debug  {background-color: #268bd233;border-color: #268bd2;}
 .iovdd, .dvdd, .adc_avdd, .qspi_iovdd, .adc_avdd    {background-color: #d3368233;border-color: #d33682;}
-.adc   {background-color: #6c71c433;border-color: #6c71c4;}
-.qspi    {background-color: #33333333;border-color: #333333;}
+.adc    {background-color: #6c71c433;border-color: #6c71c4;}
+.qspi   {background-color: #33333333;border-color: #333333;}
+
+.gpio:hover, .gpio.hover  {background-color: #85990066;border-color: #859900;}
+.xtal:hover, .xtal.hover  {background-color: #002b3666;border-color: #002b36;}
+.vreg:hover, .vreg.hover  {background-color: #dc322f66;border-color: #dc322f;}
+.usb:hover, .usb.hover    {background-color: #2aa19866;border-color: #2aa198;}
+.system:hover, .system.hover {background-color: #df8f8e66;border-color: #df8f8e;}
+.debug:hover, .debug.hover   {background-color: #268bd266;border-color: #268bd2;}
+.iovdd:hover, .dvdd:hover, .adc_avdd:hover, .qspi_iovdd:hover, .adc_avdd:hover,
+.iovdd.hover, .dvdd.hover, .adc_avdd.hover, .qspi_iovdd.hover, .adc_avdd.hover
+{background-color: #d3368266;border-color: #d33682;}
+.adc:hover, .adc.hover   {background-color: #6c71c466;border-color: #6c71c4;}
+.qspi:hover, .qspi.hover {background-color: #33333366;border-color: #333333;}
 
 .search tr {background:none;}
-.search.hide tr:not(.result) {display:none;}
+.search.hide tbody tr:not(.result) {display:none;}
 
 .result td, .result th {background-color:#dc322f33;}
 th.result, td.result {background-color:#dc322f66;}
@@ -338,6 +359,12 @@ th.result, td.result {background-color:#dc322f66;}
         border: 1px solid #222;
         color: #ddd;
     }
+
+    tbody tr td:nth-child(2n + 1) {
+        background-color:#00000033;
+    }
+
+    tbody tr:nth-child(1) {border-top:5px solid #333 !important;}
 }
 
 @media print {

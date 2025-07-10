@@ -6,7 +6,7 @@ var checkbox_hide = document.getElementById("find_hide");
 var checkbox_confirm = document.getElementById("mark_confirm");
 var cells = document.querySelectorAll("tbody td,tbody th");
 var alt_functions = document.querySelectorAll("tbody td");
-var rows = document.querySelectorAll("tr");
+var rows = document.querySelectorAll("tbody tr");
 
 var minimap = document.getElementById("minimap");
 var minimap_pins = document.querySelectorAll("#minimap dt");
@@ -15,6 +15,18 @@ checkbox_hide.onchange = function() {
     find = input.value.toLowerCase();
     table.classList.toggle("hide", find !== "" && this.checked);
 }
+
+rows.forEach((row) => {
+    row.onmouseover = (ev) => {
+        var minipin = parseInt(row.querySelector("th").textContent) - 1;
+        minimap_pins.forEach(pin => {
+            pin.classList.remove("hover");
+            pin.nextSibling.classList.remove("hover")
+        });
+        minimap_pins[minipin].classList.add("hover");
+        minimap_pins[minipin].nextSibling.classList.add("hover");
+    };
+});
 
 input.onkeyup = function(){
     find = this.value.toLowerCase();
