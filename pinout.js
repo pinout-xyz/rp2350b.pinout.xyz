@@ -8,6 +8,8 @@ var cells = document.querySelectorAll("tbody td,tbody th");
 var alt_functions = document.querySelectorAll("tbody td");
 var headings = document.querySelectorAll("tbody th");
 var rows = document.querySelectorAll("tbody tr");
+var btn_save = document.getElementById("save");
+var input_filename = document.getElementById("name");
 
 var minimap = document.getElementById("minimap");
 var minimap_pins = document.querySelectorAll("#minimap dt");
@@ -121,6 +123,28 @@ function _mark_pin(pin) {
     update_minimap(minipin, add, alt_fn);
 
 }
+
+function JSON_download() {
+    var pins = [];
+    rows.forEach((row) => {
+        var headers = row.getElementsByTagName("th");
+        var alt_fn = row.querySelector("td.selected");
+        var pin = parseInt(headers[0].textContent);
+        var name = headers[1].textContent;
+        alt_fn = alt_fn ? `, "alt": "${alt_fn.textContent}"` : "";
+        pins.push(`{"pin": "${pin}", "name": "${name}"${alt_fn}}`);
+    });
+    pins = pins.join(",\n");
+    var content = `[${pins}]`;
+    const a = document.createElement("a");
+    const blob = new Blob([content], {type: "text/json"});
+    a.setAttribute('href', URL.createObjectURL(blob));
+    var filename = input_filename.value ? input_filename.value + ".json" : "rp2350a.pinout.xyz.json"
+    a.setAttribute('download', filename);
+    a.click();
+}
+
+btn_save.onclick = JSON_download;
 
 alt_functions.forEach(cell=>cell.onclick = mark_pin);
 headings.forEach(cell=>cell.onclick = mark_pin_sio);

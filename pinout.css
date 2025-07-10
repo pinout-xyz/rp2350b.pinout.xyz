@@ -56,9 +56,11 @@ form {
     font-size: 14px;
 }
 
-form label {
-    margin-left: 20px;
+form label, form > input {
+    margin-right: 20px;
 }
+
+form input[type="button"] {cursor: pointer;}
 
 input {
     margin: 20px 0 0 0;
@@ -67,6 +69,7 @@ input {
     background: #eee;
     border: 1px solid #ccc;
 }
+form input[type="button"]:hover {background:#fff;}
 
 /* Footer */
 footer {
@@ -362,6 +365,7 @@ th.result, td.result {background-color:#dc322f66;}
         border: 1px solid #222;
         color: #ddd;
     }
+    form input[type="button"]:hover {background:#222;}
 
     tbody tr td:nth-child(2n + 1) {
         background-color:#00000033;
