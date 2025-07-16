@@ -1,5 +1,5 @@
 {
-    "name": "RP2350A",
+    "name": "RP2350B",
     "types": {
         "gpio": "General-purpose digital input and output.",
         "adc": "General-purpose digital input and output, with analogue-to-digital converter function. The RP2350 ADC has an analogue multiplexer which can select any one of these pins, and sample the voltage.",
