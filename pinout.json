@@ -165,7 +165,7 @@
         },
         "33": {
             "name": "SWCLK",
-            "type": "gpio"
+            "type": "debug"
         },
         "34": {
             "name": "SWDIO",
@@ -269,7 +269,7 @@
             "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM9 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 RX"]
         },
         "55": {
-            "name": "GPIO44_ADC3",
+            "name": "GPIO44_ADC4",
             "type": "adc",
             "alt": ["", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM10 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
         },
