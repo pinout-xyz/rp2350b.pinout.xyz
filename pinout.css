@@ -174,11 +174,11 @@ th.result, td.result {background-color:#dc322f66;}
 #minimap {
     position: fixed;
     font-size:6px;
-    width:330px;
-    height:330px;
+    width:380px;
+    height:380px;
     right: 10px;
     top: 57px;
-    transform:scale(0.75, 0.75);
+    transform:scale(0.65, 0.65);
     transform-origin: 100% 0;
     transition: transform .2s ease-in-out;
 }
@@ -188,8 +188,8 @@ th.result, td.result {background-color:#dc322f66;}
 }
 
 #minimap > div {
-    width:330px;
-    height:330px;
+    width:100%;
+    height:100%;
     transform-origin: 50% 50%;
     background:#111111dd;
     color: #ccc;
@@ -277,7 +277,7 @@ th.result, td.result {background-color:#dc322f66;}
     transform-origin: 100% 0;
     position: absolute;
     left: 5px;
-    bottom: -65px;
+    bottom: -115px;
     text-align: left;
 }
 #minimap dl:nth-child(3) {
@@ -332,9 +332,9 @@ th.result, td.result {background-color:#dc322f66;}
     right: auto;
 }
 #minimap > div:before {
-    content: "\2B24"; /* Fallback pin1 designator */
+    content: "\2B24"; /* pin1 designator */
     display: block;
-    background: #222 url(rp2350a-chip.svg) no-repeat center center;
+    background: #222 url(rp2350b-chip.svg) no-repeat center center;
     background-size: cover;
     color: #444;
     position: absolute;
@@ -343,8 +343,8 @@ th.result, td.result {background-color:#dc322f66;}
     font-size: 5px;
     left: 85px;
     top: 85px;
-    width: 160px;
-    height: 160px;
+    width: 210px;
+    height: 210px;
 }
 
 @media (prefers-color-scheme: dark) {

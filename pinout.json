@@ -12,282 +12,380 @@
     },
     "pins": {
         "1": {
-            "name": "IOVDD",
-            "type": "iovdd"
-        },
-        "2": {
-            "name": "GPIO0",
-            "type": "gpio",
-            "alt": ["", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM0 A", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB OVCUR DET", ""]
-        },
-        "3": {
-            "name": "GPIO1",
-            "type": "gpio",
-            "alt": ["", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM0 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACECLK", "USB VBUS DET", ""]
-        },
-        "4": {
-            "name": "GPIO2",
-            "type": "gpio",
-            "alt": ["", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM1 A", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA0", "USB VBUS EN", "UART0 TX"]
-        },
-        "5": {
-            "name": "GPIO3",
-            "type": "gpio",
-            "alt": ["", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA1", "USB OVCUR DET", "UART0 RX"]
-        },
-        "6": {
-            "name": "DVDD",
-            "type": "dvdd"
-        },
-        "7": {
             "name": "GPIO4",
             "type": "gpio",
             "alt": ["", "SPI0 RX", "UART1 TX", "I2C0 SDA", "PWM2 A", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA2", "USB VBUS DET", ""]
         },
-        "8": {
+        "2": {
             "name": "GPIO5",
             "type": "gpio",
             "alt": ["", "SPI0 CSn", "UART1 RX", "I2C0 SCL", "PWM2 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA3", "USB VBUS EN", ""]
         },
-        "9": {
+        "3": {
             "name": "GPIO6",
             "type": "gpio",
             "alt": ["", "SPI0 SCK", "UART1 CTS", "I2C1 SDA", "PWM3 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 TX"]
         },
-        "10": {
+        "4": {
             "name": "GPIO7",
             "type": "gpio",
             "alt": ["", "SPI0 TX", "UART1 RTS", "I2C1 SCL", "PWM3 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 RX"]
         },
-        "11": {
+        "5": {
             "name": "IOVDD",
             "type": "iovdd"
         },
-        "12": {
+        "6": {
             "name": "GPIO8",
             "type": "gpio",
             "alt": ["", "SPI1 RX", "UART1 TX", "I2C0 SDA", "PWM4 A", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS EN", ""]
         },
-        "13": {
+        "7": {
             "name": "GPIO9",
             "type": "gpio",
             "alt": ["", "SPI1 CSn", "UART1 RX", "I2C0 SCL", "PWM4 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", ""]
         },
-        "14": {
+        "8": {
             "name": "GPIO10",
             "type": "gpio",
             "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM5 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 TX"]
         },
-        "15": {
+        "9": {
             "name": "GPIO11",
             "type": "gpio",
             "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM5 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 RX"]
         },
-        "16": {
+        "10": {
+            "name": "DVDD",
+            "type": "dvdd"
+        },
+        "11": {
             "name": "GPIO12",
             "type": "gpio",
             "alt": ["HSTX", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM6 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN0", "USB OVCUR DET", ""]
         },
-        "17": {
+        "12": {
             "name": "GPIO13",
             "type": "gpio",
             "alt": ["HSTX", "SPI1 CSn", "UART0 RX", "I2C0 SCL", "PWM6 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT0", "USB VBUS DET", ""]
         },
-        "18": {
+        "13": {
             "name": "GPIO14",
             "type": "gpio",
             "alt": ["HSTX", "SPI1 SCK", "UART0 CTS", "I2C1 SDA", "PWM7 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN1", "USB VBUS EN", "UART0 TX"]
         },
-        "19": {
+        "14": {
             "name": "GPIO15",
             "type": "gpio",
             "alt": ["HSTX", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM7 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB OVCUR DET", "UART0 RX"]
         },
-        "20": {
+        "15": {
             "name": "IOVDD",
             "type": "iovdd"
         },
-        "21": {
-            "name": "XIN",
-            "type": "xtal"
-        },
-        "22": {
-            "name": "XOUT",
-            "type": "xtal"
-        },
-        "23": {
-            "name": "DVDD",
-            "type": "dvdd"
-        },
-        "24": {
-            "name": "SWCLK",
-            "type": "debug"
-        },
-        "25": {
-            "name": "SWDIO",
-            "type": "debug"
-        },
-        "26": {
-            "name": "RUN",
-            "type": "system",
-            "desc": "Global asynchronous reset pin. Reset when driven low, run when driven high. If no external reset is required, this pin can be tied directly to IOVDD."
-        },
-        "27": {
+        "16": {
             "name": "GPIO16",
             "type": "gpio",
             "alt": ["HSTX", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM0 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
         },
-        "28": {
+        "17": {
             "name": "GPIO17",
             "type": "gpio",
             "alt": ["HSTX", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM0 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
         },
-        "29": {
+        "18": {
             "name": "GPIO18",
             "type": "gpio",
             "alt": ["HSTX", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM1 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART0 TX"]
         },
-        "30": {
-            "name": "IOVDD",
-            "type": "iovdd"
-        },
-        "31": {
+        "19": {
             "name": "GPIO19",
             "type": "gpio",
-            "alt": ["HSTX", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS DET", "UART0 RX"]
+            "alt": ["HSTX", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM7 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB OVCUR DET", "UART0 RX"]
         },
-        "32": {
+        "20": {
             "name": "GPIO20",
             "type": "gpio",
             "alt": ["", "SPI0 RX", "UART1 TX", "I2C0 SDA", "PWM2 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN0", "USB VBUS EN", ""]
         },
-        "33": {
+        "21": {
             "name": "GPIO21",
             "type": "gpio",
             "alt": ["", "SPI0 CSn", "UART1 RX", "I2C0 SCL", "PWM2 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT0", "USB OVCUR DET", ""]
         },
-        "34": {
+        "22": {
             "name": "GPIO22",
             "type": "gpio",
             "alt": ["", "SPI0 SCK", "UART1 CTS", "I2C1 SDA", "PWM3 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPIN1", "USB VBUS DET", "UART1 TX"]
         },
-        "35": {
+        "23": {
             "name": "GPIO23",
             "type": "gpio",
             "alt": ["", "SPI0 TX", "UART1 RTS", "I2C1 SCL", "PWM3 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB VBUS EN", "UART1 RX"]
         },
-        "36": {
+        "24": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "25": {
             "name": "GPIO24",
             "type": "gpio",
             "alt": ["", "SPI1 RX", "UART1 TX", "I2C0 SDA", "PWM4 A", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT2", "USB OVCUR DET", ""]
         },
-        "37": {
+        "26": {
             "name": "GPIO25",
             "type": "gpio",
             "alt": ["", "SPI1 CSn", "UART1 RX", "I2C0 SCL", "PWM4 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT3", "USB VBUS DET", ""]
         },
-        "38": {
+        "27": {
+            "name": "GPIO26",
+            "type": "gpio",
+            "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM5 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 TX"]
+        },
+        "28": {
+            "name": "GPIO27",
+            "type": "gpio",
+            "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM5 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 RX"]
+        },
+        "29": {
             "name": "IOVDD",
             "type": "iovdd"
         },
-        "39": {
+        "30": {
+            "name": "XIN",
+            "type": "xtal"
+        },
+        "31": {
+            "name": "XOUT",
+            "type": "xtal"
+        },
+        "32": {
             "name": "DVDD",
             "type": "dvdd"
         },
-        "40": {
-            "name": "GPIO26_ADC0",
-            "type": "adc",
-            "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM5 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 TX"]
+        "33": {
+            "name": "SWCLK",
+            "type": "gpio"
         },
-        "41": {
-            "name": "GPIO27_ADC1",
-            "type": "adc",
-            "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM5 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 RX"]
+        "34": {
+            "name": "SWDIO",
+            "type": "debug"
         },
-        "42": {
-            "name": "GPIO28_ADC2",
-            "type": "adc",
+        "35": {
+            "name": "RUN",
+            "type": "system",
+            "desc": "Global asynchronous reset pin. Reset when driven low, run when driven high. If no external reset is required, this pin can be tied directly to IOVDD."
+        },
+        "36": {
+            "name": "GPIO28",
+            "type": "gpio",
             "alt": ["", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM6 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
         },
-        "43": {
-            "name": "GPIO29_ADC3",
-            "type": "adc",
+        "37": {
+            "name": "GPIO29",
+            "type": "gpio",
             "alt": ["", "SPI1 CSn", "UART0 RX", "I2C0 SCL", "PWM6 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
         },
+        "38": {
+            "name": "GPIO30",
+            "type": "gpio",
+            "alt": ["", "SPI1 SCK", "UART0 CTS", "I2C1 SDA", "PWM7 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART0 TX"]
+        },
+        "39": {
+            "name": "GPIO31",
+            "type": "gpio",
+            "alt": ["", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM7 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART0 RX"]
+        },
+        "40": {
+            "name": "GPIO32",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM8 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
+        },
+        "41": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "42": {
+            "name": "GPIO33",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM8 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", ""]
+        },
+        "43": {
+            "name": "GPIO34",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM9 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART0 TX"]
+        },
         "44": {
+            "name": "GPIO35",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM9 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART0 RX"]
+        },
+        "45": {
+            "name": "GPIO36",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART1 TX", "I2C0 SDA", "PWM10 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", ""]
+        },
+        "46": {
+            "name": "GPIO37",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART1 RX", "I2C0 SCL", "PWM10 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
+        },
+        "47": {
+            "name": "GPIO38",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART1 CTS", "I2C1 SCL", "PWM11 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART1 TX"]
+        },
+        "48": {
+            "name": "GPIO39",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART1 RTS", "I2C1 SCL", "PWM11 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 RX"]
+        },
+        "49": {
+            "name": "GPIO40_ADC0",
+            "type": "adc",
+            "alt": ["", "SPI1 RX", "UART1 TX", "I2C0 SDA", "PWM8 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", ""]
+        },
+        "50": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "51": {
+            "name": "DVDD",
+            "type": "dvdd"
+        },
+        "52": {
+            "name": "GPIO41_ADC1",
+            "type": "adc",
+            "alt": ["", "SPI1 CSn", "UART1 RX", "I2C0 SCL", "PWM8 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
+        },
+        "53": {
+            "name": "GPIO42_ADC2",
+            "type": "adc",
+            "alt": ["", "SPI1 SCK", "UART1 CTS", "I2C1 SDA", "PWM9 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", "UART1 TX"]
+        },
+        "54": {
+            "name": "GPIO43_ADC3",
+            "type": "adc",
+            "alt": ["", "SPI1 TX", "UART1 RTS", "I2C1 SCL", "PWM9 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART1 RX"]
+        },
+        "55": {
+            "name": "GPIO44_ADC3",
+            "type": "adc",
+            "alt": ["", "SPI1 RX", "UART0 TX", "I2C0 SDA", "PWM10 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", ""]
+        },
+        "56": {
+            "name": "GPIO45_ADC5",
+            "type": "adc",
+            "alt": ["", "SPI1 CSn", "UART0 RX", "I2C0 SCL", "PWM10 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB OVCUR DET", ""]
+        },
+        "57": {
+            "name": "GPIO46_ADC6",
+            "type": "adc",
+            "alt": ["", "SPI1 SCK", "UART0 CTS", "I2C1 SDA", "PWM11 A", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS DET", "UART0 TX"]
+        },
+        "58": {
+            "name": "GPIO47_ADC7",
+            "type": "adc",
+            "alt": ["", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM11 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART0 RX"]
+        },
+        "59": {
             "name": "ADC_AVDD",
             "type": "adc_avdd",
             "desc": "Power supply for analogue-to-digital converter, nominal voltage 3.3v."
         },
-        "45": {
+        "60": {
             "name": "IOVDD",
             "type": "iovdd"
         },
-        "46": {
+        "61": {
             "name": "VREG_AVDD",
             "type": "vreg",
             "desc": "Analogue power supply for internal core voltage regulator, nominal voltage 3.3v."
         },
-        "47": {
+        "62": {
             "name": "VREG_PGND",
             "type": "vreg",
             "desc": "Power-ground connection for internal core voltage regulator, tie to ground externally."
         },
-        "48": {
+        "63": {
             "name": "VREG_LX",
             "type": "vreg",
             "desc": "Switched-mode output for internal core voltage regulator, connected to external inductor. Max current 200 mA, nominal voltage 1.1V after filtering."
         },
-        "49": {
+        "64": {
             "name": "VREG_VIN",
             "type": "vreg",
             "desc": "Power input for internal core voltage regulator, nominal voltage 2.7V to 5.5V."
         },
-        "50": {
+        "65": {
             "name": "VREG_FB",
             "type": "vreg",
             "desc": "Voltage feedback for internal core voltage regulator, connect to filtered VREG output (e.g. to DVDD, if the regulator is used to supply DVDD)."
         },
-        "51": {
+        "66": {
             "name": "USB_DM",
             "type": "usb"
         },
-        "52": {
+        "67": {
             "name": "USB_DP",
             "type": "usb"
         },
-        "53": {
+        "68": {
             "name": "USB_OTP_VDD",
             "type": "usb"
         },
-        "54": {
+        "69": {
             "name": "QSPI_IOVDD",
             "type": "qspi_iovdd",
             "desc": "Power supply for QSPI IOs, nominal voltage 1.8V to 3.3v."
         },
-        "55": {
+        "70": {
             "name": "QSPI_SD3",
             "type": "qspi"
         },
-        "56": {
+        "71": {
             "name": "QSPI_SCLK",
             "type": "qspi"
         },
-        "57": {
+        "72": {
             "name": "QSPI_SD0",
             "type": "qspi"
         },
-        "58": {
+        "73": {
             "name": "QSPI_SD2",
             "type": "qspi"
         },
-        "59": {
+        "74": {
             "name": "QSPI_SD1",
             "type": "qspi"
         },
-        "60": {
+        "75": {
             "name": "QSPI_SS",
             "type": "qspi"
+        },
+        "76": {
+            "name": "IOVDD",
+            "type": "iovdd"
+        },
+        "77": {
+            "name": "GPIO0",
+            "type": "gpio",
+            "alt": ["", "SPI0 RX", "UART0 TX", "I2C0 SDA", "PWM0 A", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB OVCUR DET", ""]
+        },
+        "78": {
+            "name": "GPIO1",
+            "type": "gpio",
+            "alt": ["", "SPI0 CSn", "UART0 RX", "I2C0 SCL", "PWM0 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACECLK", "USB VBUS DET", ""]
+        },
+        "79": {
+            "name": "GPIO2",
+            "type": "gpio",
+            "alt": ["", "SPI0 SCK", "UART0 CTS", "I2C1 SDA", "PWM1 A", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA0", "USB VBUS EN", "UART0 TX"]
+        },
+        "80": {
+            "name": "GPIO3",
+            "type": "gpio",
+            "alt": ["", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "TRACEDATA1", "USB OVCUR DET", "UART0 RX"]
         }
     }
 }

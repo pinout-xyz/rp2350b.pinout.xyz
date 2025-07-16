@@ -30,7 +30,7 @@ class Pin:
         return f"<dt>{self.pin}</dt><dd class=\"{self.type}\">{self.name}</dd>"
 
 
-def pins(start=1, count=15):
+def pins(start=1, count=20):
     for i in range(start, start + count):
         yield Pin(i, **data["pins"][str(i)])
 
@@ -58,12 +58,12 @@ def tbody():
 html += thead()
 minimap = "<dl>"
 
-for offset in (1, 16, 31, 46):
+for offset in (1, 21, 41, 61):
     for pin in pins(offset):
         html += pin.table_row()
         minimap += pin.minimap_row()
 
-    if offset < 46:
+    if offset < 61:
         html += tbody()
         minimap += "</dl><dl>"
 
