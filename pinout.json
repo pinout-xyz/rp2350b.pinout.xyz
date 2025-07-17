@@ -101,7 +101,7 @@
         "19": {
             "name": "GPIO19",
             "type": "gpio",
-            "alt": ["HSTX", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM7 B", "SIO", "PIO0", "PIO1", "PIO2", "CLOCK GPOUT1", "USB OVCUR DET", "UART0 RX"]
+            "alt": ["HSTX", "SPI0 TX", "UART0 RTS", "I2C1 SCL", "PWM1 B", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS DET", "UART0 RX"]
         },
         "20": {
             "name": "GPIO20",
@@ -286,7 +286,7 @@
         "58": {
             "name": "GPIO47_ADC7",
             "type": "adc",
-            "alt": ["", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM11 B", "SIO", "PIO0", "PIO1", "PIO2", "", "USB VBUS EN", "UART0 RX"]
+            "alt": ["", "SPI1 TX", "UART0 RTS", "I2C1 SCL", "PWM11 B", "SIO", "PIO0", "PIO1", "PIO2", "QMI CS1n", "USB VBUS EN", "UART0 RX"]
         },
         "59": {
             "name": "ADC_AVDD",
