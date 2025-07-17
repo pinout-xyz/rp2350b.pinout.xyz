@@ -10,6 +10,21 @@
         "dvdd": "Digital core power supply, nominal voltage 1.1V. Must be connected externally, either to the voltage regulator output, or an external board-level power supply.",
         "debug": "Access to the internal Serial Wire Debug multi-drop bus. Provides debug access to both processors, and can be used to download code."
     },
+    "functions": {
+        "SPI": "Connect one of the internal PL022 SPI peripherals to GPIO.",
+        "UART": "Connect one of the internal PL011 UART peripherals to GPIO.",
+        "I2C": "Connect one of the internal DW I2C peripherals to GPIO.",
+        "PWM": "Connect a PWM slice to GPIO. There are twelve PWM slices, each with two output channels (A/B). The B pin can also be used as an input, for frequency and duty cycle measurement.",
+        "SIO": "Software control of GPIO, from the single-cycle IO (SIO) block. The SIO function (F5) must be selected for the processors to drive a GPIO, but the input is always connected, so software can check the state of GPIOs at any time.",
+        "PIO": "Connect one of the programmable IO blocks (PIO) to GPIO. PIO can implement a wide variety of interfaces, and has its own internal pin mapping hardware, allowing flexible placement of digital interfaces on bank 0 GPIOs. The PIO function (F6, F7, F8) must be selected for PIO to drive a GPIO, but the input is always connected, so the PIOs can always see the state of all pins.",
+        "HSTX": "Connect the high-speed transmit peripheral (HSTX) to GPIO.",
+        "CLOCK GPIN": "General purpose clock inputs. Can be routed to a number of internal clock domains on RP2350, e.g. to provide a 1Hz clock for the AON Timer, or can be connected to an internal frequency counter.",
+        "CLOCK GPOUT": "General purpose clock outputs. Can drive a number of internal clocks (including PLL outputs) onto GPIOs, with optional integer divide.",
+        "TRACE": "CoreSight TPIU execution trace output from Cortex-M33 processors (Arm-only).",
+        "USB": "USB power control signals to/from the internal USB controller.",
+        "QMI CS": "Auxiliary chip select for QSPI bus, to allow execute-in-place from an additional flash or PSRAM device.",
+        "QMI": "QSPI memory interface peripheral, used for execute-in-place from external QSPI flash or PSRAM memory devices."
+    },
     "pins": {
         "1": {
             "name": "GPIO4",
@@ -324,11 +339,15 @@
         },
         "66": {
             "name": "USB_DM",
-            "type": "usb"
+            "type": "usb",
+            "alt": ["", "", "UART1 RX", "I2C0 SCL", "", "SIO", "", "", "", "", "", ""],
+            "bank": 1
         },
         "67": {
             "name": "USB_DP",
-            "type": "usb"
+            "type": "usb",
+            "alt": ["", "", "UART1 TX", "I2C0 SDA", "", "SIO", "", "", "", "", "", ""],
+            "bank": 1
         },
         "68": {
             "name": "USB_OTP_VDD",
@@ -341,27 +360,39 @@
         },
         "70": {
             "name": "QSPI_SD3",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI SD3", "", "UART0 RTS", "I2C1 SCL", "", "SIO", "", "", "", "", "", "UART0 RX"],
+            "bank": 1
         },
         "71": {
             "name": "QSPI_SCLK",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI SCK", "", "UART1 CTS", "I2C1 SDA", "", "SIO", "", "", "", "", "", "UART1 TX"],
+            "bank": 1
         },
         "72": {
             "name": "QSPI_SD0",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI SD0", "", "UART0 TX", "I2C0 SDA", "", "SIO", "", "", "", "", "", ""],
+            "bank": 1
         },
         "73": {
             "name": "QSPI_SD2",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI SD2", "", "UART0 CTS", "I2C1 SDA", "", "SIO", "", "", "", "", "", "UART0 TX"],
+            "bank": 1
         },
         "74": {
             "name": "QSPI_SD1",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI SD1", "", "UART0 RX", "I2C0 SCL", "", "SIO", "", "", "", "", "", ""],
+            "bank": 1
         },
         "75": {
             "name": "QSPI_SS",
-            "type": "qspi"
+            "type": "qspi",
+            "alt": ["QMI CS0n", "", "UART1 RTS", "I2C1 SCL", "", "SIO", "", "", "", "", "", "UART1 RX"],
+            "bank": 1
         },
         "76": {
             "name": "IOVDD",

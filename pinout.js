@@ -55,6 +55,54 @@ function is_mutex(alt_fn) {
     return ["SPI", "UART", "I2C", "PWM", "CLOCK", "USB"].some(iface => alt_fn.startsWith(iface));
 }
 
+function is_pio(alt_fn) {
+    return ["PIO0", "PIO1", "PIO2"].some(iface => alt_fn == iface);
+}
+
+// Return a list of GPIO pin numbers (as integers) which has the given alt_fn assigned
+function get_fn_gpios(alt_fn) {
+    return Array.from(document.querySelectorAll("tbody td.selected,tbody th.selected"))
+                    .filter(cell => cell.textContent === alt_fn)
+                    .map((pin) => {
+                        let gpio = pin.parentElement.querySelector("th:nth-child(2)").textContent.split("_")[0].substring(4);
+                        return parseInt(gpio);
+                    });
+}
+
+// PIO alt modes are not mutually exclusive, but on the QFN-80, 48 GPIO RP2350B
+// variant they can only be used in groups of either 0 to 31 or 16 to 47 inclusive.
+// Pins assigned to PIO0, PIO1 or PIO2 must appear in only *one* of these ranges.
+function check_pio_ranges(alt_fn) {
+    var pins = get_fn_gpios(alt_fn);
+    let range_start = Math.min.apply(null, pins);
+    let range_end = Math.max.apply(null, pins);
+
+    return (range_end - range_start <= 32) && ((range_end < 32) || (range_start > 15))
+}
+
+// Check a given PIO's pin assignments fall within valid ranges, throw an alert
+// and mark the assignments with an error class if not.
+function check_pio(alt_fn) {
+    if(is_pio(alt_fn)) {
+        let pio_ok = check_pio_ranges(alt_fn);
+        if(!pio_ok && checkbox_confirm.checked) {
+            alert(`Pin assignments for ${alt_fn} do not fall within a valid range.
+Valid ranges are 0 - 31 or 16 - 47 inclusive.
+
+Selected pins: ${get_fn_gpios(alt_fn)}`);
+        }
+        set_error(alt_fn, !pio_ok);
+    }
+}
+
+function set_error(alt_fn, state) {
+    var pins = Array.from(document.querySelectorAll("tbody td.selected,tbody th.selected"))
+                    .filter(cell => cell.textContent === alt_fn)
+                    .forEach((pin) => {
+                        pin.classList.toggle("error", state);
+                    });
+}
+
 // The SIO function is effectively GPIO, so detect it and avoid replacing text
 // labels (in the minimap) on select.
 function is_sio(alt_fn) {
@@ -122,6 +170,8 @@ function _mark_pin(pin) {
     var minipin = parseInt(pin.parentElement.querySelector("th").textContent) - 1;
     update_minimap(minipin, add, alt_fn);
 
+    // We must check the PIO ranges after the current function has been selected
+    check_pio(alt_fn);
 }
 
 function JSON_download() {

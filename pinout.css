@@ -155,8 +155,8 @@ th.result, td.result {background-color:#dc322f66;}
 
 .selected th, .selected td {font-weight: bold;}
 .selected .selected {color:#859900;position:relative;}
-.selected .selected:before {
-    content: "\f08d";
+.selected .error {color:#dc322f;position:relative;}
+.selected .selected:before, .selected .error:before {
     position: absolute;
     left:-5px;
     top:-5px;
@@ -170,6 +170,14 @@ th.result, td.result {background-color:#dc322f66;}
     line-height: 1;
     text-rendering: auto;
 }
+.selected .selected:before {
+    content: "\f08d";
+}
+.selected .error:before {
+    content: "\f071";
+    transform:rotate(0deg);
+}
+
 
 #minimap {
     position: fixed;
