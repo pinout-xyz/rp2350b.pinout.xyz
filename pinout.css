@@ -150,8 +150,9 @@ tbody tr:hover {
 .search tr {background:none;}
 .search.hide tbody tr:not(.result) {display:none;}
 
-.result td, .result th {background-color:#dc322f33;}
-th.result, td.result {background-color:#dc322f66;}
+.result th:nth-child(2n + 1), .result td:nth-child(2n + 1) {background-color:#dc322f1c;}
+.result td, .result th {background-color:#dc322f22;}
+.result th.result, .result td.result {background-color:#dc322f66;}
 
 .selected th, .selected td {font-weight: bold;}
 .selected .selected {color:#859900;position:relative;}

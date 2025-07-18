@@ -55,10 +55,6 @@ function is_mutex(alt_fn) {
     return ["SPI", "UART", "I2C", "PWM", "CLOCK", "USB"].some(iface => alt_fn.startsWith(iface));
 }
 
-function is_pio(alt_fn) {
-    return ["PIO0", "PIO1", "PIO2"].some(iface => alt_fn == iface);
-}
-
 // Return a list of GPIO pin numbers (as integers) which has the given alt_fn assigned
 function get_fn_gpios(alt_fn) {
     return Array.from(document.querySelectorAll("tbody td.selected,tbody th.selected"))
@@ -83,24 +79,26 @@ function check_pio_ranges(alt_fn) {
 // Check a given PIO's pin assignments fall within valid ranges, throw an alert
 // and mark the assignments with an error class if not.
 function check_pio(alt_fn) {
-    if(is_pio(alt_fn)) {
-        let pio_ok = check_pio_ranges(alt_fn);
-        if(!pio_ok && checkbox_confirm.checked) {
-            alert(`Pin assignments for ${alt_fn} do not fall within a valid range.
+    ["PIO0", "PIO1", "PIO2"].forEach((pio) => {
+        let error = pio === alt_fn;
+        let pio_ok = check_pio_ranges(pio);
+        if(!pio_ok && checkbox_confirm.checked && error) {
+            alert(`Pin assignments for ${pio} do not fall within a valid range.
 Valid ranges are 0 - 31 or 16 - 47 inclusive.
 
-Selected pins: ${get_fn_gpios(alt_fn)}`);
+Selected pins: ${get_fn_gpios(pio)}`);
         }
-        set_error(alt_fn, !pio_ok);
-    }
+        set_error(pio, !pio_ok);
+    });
 }
 
 function set_error(alt_fn, state) {
-    var pins = Array.from(document.querySelectorAll("tbody td.selected,tbody th.selected"))
-                    .filter(cell => cell.textContent === alt_fn)
-                    .forEach((pin) => {
-                        pin.classList.toggle("error", state);
-                    });
+    let pins = state ? Array.from(document.querySelectorAll("tbody td.selected,tbody th.selected"))
+                     : Array.from(document.querySelectorAll("tbody td.selected,tbody th"));
+
+    pins.filter(cell => cell.textContent === alt_fn).forEach((pin) => {
+        pin.classList.toggle("error", state);
+    });
 }
 
 // The SIO function is effectively GPIO, so detect it and avoid replacing text
@@ -163,6 +161,7 @@ function _mark_pin(pin) {
     pin.parentElement.querySelectorAll("tbody td,tbody th").forEach(cell=>{
         if(cell === pin) return;
         cell.classList.remove("selected");
+        cell.classList.remove("error");
     });
 
     pin.parentElement.classList.toggle("selected", add);
