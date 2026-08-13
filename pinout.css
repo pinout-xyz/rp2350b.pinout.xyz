@@ -1,3 +1,6 @@
+:root {
+    color-scheme: light dark;
+}
 body {
     display: grid;
     place-items: center;
@@ -51,25 +54,62 @@ section {
         "Courier New", monospace;
 }
 
-/* Search */
+/* Toolbar */
 form {
     font-size: 14px;
 }
 
-form label, form > input {
-    margin-right: 20px;
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px 40px;
+    margin-top: 15px;
+    /* Clear the minimap, which is fixed 247px wide against the right edge. */
+    padding-right: 257px;
 }
 
-form input[type="button"] {cursor: pointer;}
+@media (max-width: 1000px) {
+    .toolbar {
+        padding-right: 0;
+    }
+}
 
-input {
-    margin: 20px 0 0 0;
+.toolbar .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.toolbar .stack.config {
+    margin-left: auto;
+    align-items: flex-end;
+}
+
+.toolbar .line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+input, button {
     padding: 10px;
     font-family: inherit;
+    font-size: inherit;
     background: #eee;
     border: 1px solid #ccc;
+    color: inherit;
 }
-form input[type="button"]:hover {background:#fff;}
+
+button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+button:hover {background: #fff;}
 
 /* Footer */
 footer {
@@ -370,12 +410,12 @@ tbody tr:hover {
     footer p {
         color: #666666;
     }
-    input {
+    input, button {
         background: #111;
         border: 1px solid #222;
         color: #ddd;
     }
-    form input[type="button"]:hover {background:#222;}
+    button:hover {background: #222;}
 
     tbody tr td:nth-child(2n + 1) {
         background-color:#00000033;
@@ -394,4 +434,25 @@ tbody tr:hover {
         background: transparent;
         color: #666666;
     }
+}
+
+:focus-visible {
+    outline: 2px solid #268bd2;
+    outline-offset: 2px;
+}
+label:has(input:focus-visible) {
+    outline: 2px solid #268bd2;
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
 }

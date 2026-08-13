@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="pinout-logo.png" type="image/png">
     <title>Raspberry Pi RP2350B (QFN-80) GPIO Pinout</title>
     <meta name="description" content="An interactive, accessible and beautiful QFN-80 GPIO pinout for the Raspberry Pi RP2350 microcontroller." />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="pinout.css?v=c2a0ea2" type="text/css" media="screen,print" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
+          integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI"
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="pinout.css?v=acfe480" type="text/css" media="screen,print" />
 </head>
 <body>
     <header>
@@ -15,12 +19,40 @@
     </header>
     <section>
         <form>
-            <input type="text" id="find" placeholder="find...">
-            <label for="find_hide"><input type="checkbox" id="find_hide"> Hide non-matches</label>
-            <label for="mark_confirm"><input type="checkbox" id="mark_confirm"> Confirm pin assignment conflicts</label>
-            <input type="text" id="name" value="my_pin_config" placeholder="name...">
-            <input type="button" id="save" value="Save JSON">
+            <div class="toolbar">
+                <div class="stack">
+                    <div class="line">
+                        <label for="find">Find</label>
+                        <input type="search" id="find" placeholder="SPI0, GPIO12, PIO...">
+                    </div>
+                    <div class="line">
+                        <label for="find_hide"><input type="checkbox" id="find_hide"> Hide non-matches</label>
+                    </div>
+                    <div class="line">
+                        <label for="mark_confirm"><input type="checkbox" id="mark_confirm"> Confirm conflicts</label>
+                    </div>
+                </div>
+                <div class="stack config">
+                    <div class="line">
+                        <label for="name">Config</label>
+                        <input type="text" id="name" value="my_pin_config">
+                    </div>
+                    <div class="line">
+                        <button type="button" id="load" tabindex="0" title="Load a pin configuration from JSON">
+                            <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Load
+                        </button>
+                        <button type="button" id="save" tabindex="0" title="Save the current pin configuration as JSON">
+                            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save
+                        </button>
+                        <button type="button" id="rotate" tabindex="0" title="Rotate the chip diagram">
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i> Rotate
+                        </button>
+                    </div>
+                    <input type="file" id="load_file" accept="application/json,.json" hidden>
+                </div>
+            </div>
         </form>
+        <div id="status" role="status" aria-live="polite" class="visually-hidden"></div>
     <table id="pinout">
     <thead><tr><th>Pin</th><th>Name</th><th>alt0</th><th>alt1</th><th>alt2</th><th>alt3</th><th>alt4</th><th>alt5</th><th>alt6</th><th>alt7</th><th>alt8</th><th>alt9</th><th>alt10</th><th>alt11</th></tr></thead>
     <tbody><tr class="gpio bank0"><th title="Pin 1">1</th><th title="GPIO4: General-purpose digital input and output.">GPIO4</th><td></td><td title="SPI0 RX: Connect one of the internal PL022 SPI peripherals to GPIO.">SPI0 RX</td><td title="UART1 TX: Connect one of the internal PL011 UART peripherals to GPIO.">UART1 TX</td><td title="I2C0 SDA: Connect one of the internal DW I2C peripherals to GPIO.">I2C0 SDA</td><td title="PWM2 A: Connect a PWM slice to GPIO. There are twelve PWM slices, each with two output channels (A/B). The B pin can also be used as an input, for frequency and duty cycle measurement.">PWM2 A</td><td title="SIO: Software control of GPIO, from the single-cycle IO (SIO) block. The SIO function (F5) must be selected for the processors to drive a GPIO, but the input is always connected, so software can check the state of GPIOs at any time.">SIO</td><td title="PIO0: Connect one of the programmable IO blocks (PIO) to GPIO. PIO can implement a wide variety of interfaces, and has its own internal pin mapping hardware, allowing flexible placement of digital interfaces on bank 0 GPIOs. The PIO function (F6, F7, F8) must be selected for PIO to drive a GPIO, but the input is always connected, so the PIOs can always see the state of all pins.">PIO0</td><td title="PIO1: Connect one of the programmable IO blocks (PIO) to GPIO. PIO can implement a wide variety of interfaces, and has its own internal pin mapping hardware, allowing flexible placement of digital interfaces on bank 0 GPIOs. The PIO function (F6, F7, F8) must be selected for PIO to drive a GPIO, but the input is always connected, so the PIOs can always see the state of all pins.">PIO1</td><td title="PIO2: Connect one of the programmable IO blocks (PIO) to GPIO. PIO can implement a wide variety of interfaces, and has its own internal pin mapping hardware, allowing flexible placement of digital interfaces on bank 0 GPIOs. The PIO function (F6, F7, F8) must be selected for PIO to drive a GPIO, but the input is always connected, so the PIOs can always see the state of all pins.">PIO2</td><td title="TRACEDATA2: CoreSight TPIU execution trace output from Cortex-M33 processors (Arm-only).">TRACEDATA2</td><td title="USB VBUS DET: USB power control signals to/from the internal USB controller.">USB VBUS DET</td><td></td>
@@ -115,8 +147,11 @@
     <footer>
         <p><a title="Raspberry Pi RP2350A QFN-60 Pinout" href="https://rp2350a.pinout.xyz">RP2350A Pinout</a>
 | <a title="Raspberry Pi RP2350B QFN-80 Pinout" class="selected" href="https://rp2350b.pinout.xyz">RP2350B Pinout</a></p>
+        <p><a title="Raspberry Pi Pinout" href="https://pi.pinout.xyz/">Pi Pinout</a>
+| <a title="Raspberry Pi Pico 2 Pinout" href="https://pico2.pinout.xyz/">Pico 2 Pinout</a>
+| <a title="Raspberry Pi Pico 2 W Pinout" href="https://pico2w.pinout.xyz/">Pico 2 W Pinout</a></p>
         <p><a title="Raspberry Pi Pico 2 Datasheet (PDF)" href="https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf">Pico 2 Datasheet</a>
-| <a title="Raspberry Pi RP2350 Datasheet (PDF) for in-depth information about the Pico W's RP2350 chip, peripherals and PIO." href="https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf">RP2350 Datasheet</a>
+| <a title="Raspberry Pi RP2350 Datasheet (PDF) for in-depth information about the RP2350 chip, peripherals and PIO." href="https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf">RP2350 Datasheet</a>
 | <a title="Getting Started With Raspberry Pi Pico (PDF)" href="https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf">Getting Started Guide</a>
 | <a title="Official Raspberry Pi Pico forum" href="https://forums.raspberrypi.com/viewforum.php?f=143">Forum</a>
 | <a title="Unofficial Pico Discord server" href="https://discord.gg/YxmkAyM77r">Discord</a></p>
@@ -125,6 +160,6 @@
     <footer class="print">
         <p>rp2350b.pinout.xyz - This interactive, accessible &amp; beautiful GPIO pinout and pin function guide for the Raspberry Pi RP2350B (QFN-80) is maintained by @gadgetoid</p>
     </footer>
-    <script src="pinout.js?v=a9c92bc" type="text/javascript"></script>
+    <script src="pinout.js?v=24529e4" type="text/javascript"></script>
 </body>
 </html>
